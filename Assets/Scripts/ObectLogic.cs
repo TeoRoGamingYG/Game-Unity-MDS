@@ -14,6 +14,7 @@ public class BooleanGridRuntimeRenderer : MonoBehaviour
     public GameObject activePrefab;   // Prefab for active state
     public GameObject inactivePrefab; // Prefab for inactive state
     public float cellSize = 1.0f;
+    
 
     // Added: scale factor to resize prefabs upon instantiation
     
@@ -22,6 +23,7 @@ public class BooleanGridRuntimeRenderer : MonoBehaviour
 
     void Start()
     {
+       
         instantiatedObjects = new GameObject[3, 3];
 
         Vector3 origin = transform.position;
@@ -61,7 +63,14 @@ public class BooleanGridRuntimeRenderer : MonoBehaviour
         }
     }
 
-
+    public void setCell(int Linie, int Coloana, bool Value)
+    {
+        this.grid[Linie,Coloana]=Value;
+    }
+    public bool getCell(int x, int y)
+    {
+        return this.grid[x, y];
+    }
     public void FillObject()
     {
         grid = new bool[3, 3]
