@@ -1,9 +1,8 @@
-/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewScript#1 : MonoBehaviour
+public class NewScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -17,4 +16,3 @@ public class NewScript#1 : MonoBehaviour
         
     }
 }
-*/
