@@ -25,9 +25,19 @@ public class Cutter : MonoBehaviour
     {
         v = new bool[3, 3];
         cnt = 0;
-        taieri = new bool[3, 3] {{true, false, false}, {false, true, false}, {false, false, true}};
+        taieri = new bool[3, 3] {{false, false, false}, {false, false, false}, {false, false, false}};
         endPoint = GameObject.Find("EndPoint").transform;
     }
+
+    public void ToggleTaieri(int row, int col)
+    {
+        if (row >= 0 && row < 3 && col >= 0 && col < 3)
+        {
+            taieri[row, col] = !taieri[row, col]; // Inversează valoarea
+            Debug.Log($"Taieri[{row}, {col}] este acum {taieri[row, col]}");
+        }
+    }
+
     void Update()
     {
 
