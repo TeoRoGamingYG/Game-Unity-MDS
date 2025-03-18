@@ -21,18 +21,18 @@ public class BooleanGridRuntimeRenderer : MonoBehaviour
     }
     public void UpdateGridRendering()
     {
-        if(isUpdating) 
+        if (isUpdating)
             return;
         StartCoroutine(UpdateGridRenderingCoroutine());
     }
     private IEnumerator UpdateGridRenderingCoroutine()
     {
         isUpdating = true;
-        for(int x = 0; x < 3; x ++)
+        for (int x = 0; x < 3; x++)
         {
-            for(int y = 0; y < 3; y ++)
+            for (int y = 0; y < 3; y++)
             {
-                if(instantiatedObjects[x, y] != null)
+                if (instantiatedObjects[x, y] != null)
                 {
                     Destroy(instantiatedObjects[x, y]);
                     instantiatedObjects[x, y] = null;
@@ -41,11 +41,11 @@ public class BooleanGridRuntimeRenderer : MonoBehaviour
         }
         yield return new WaitForEndOfFrame();
         Vector3 origin = transform.position;
-        for(int x = 0; x < 3; x ++)
+        for (int x = 0; x < 3; x++)
         {
-            for(int y = 0; y < 3; y ++)
+            for (int y = 0; y < 3; y++)
             {
-                GameObject prefab = grid[x, y] ? activePrefab : inactivePrefab;
+                GameObject prefab = grid[y, x] ? activePrefab : inactivePrefab;
                 Vector3 pos = origin + new Vector3(x * cellSize, (2 - y) * cellSize, 0);
                 instantiatedObjects[x, y] = Instantiate(prefab, pos, Quaternion.identity, transform);
                 instantiatedObjects[x, y].transform.localScale = new Vector3(cellSize, cellSize, cellSize);
