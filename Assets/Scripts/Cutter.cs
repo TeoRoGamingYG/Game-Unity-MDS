@@ -20,6 +20,7 @@ public class Cutter : MonoBehaviour
     private bool[,] c;
     private bool[,] taieri;
     private int cnt = 0;
+
     void Start()
     {
         v = new bool[3, 3];
@@ -41,9 +42,15 @@ public class Cutter : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        UnityEngine.Debug.Log(other.tag);
         if(other.CompareTag("Pick"))
         {
-            //UnityEngine.Debug.Log("Pick");
+            UnityEngine.Debug.Log("Pick");
+            ConveyorBelt conveyorBelt = Object.FindFirstObjectByType<ConveyorBelt>();
+            if (conveyorBelt != null)
+            {
+                conveyorBelt.RemoveItem(other.transform);
+            }
             v = new bool[3, 3];
             cnt = 0;
             c = new bool[3, 3]{{false, false, false}, {false, false, false}, {false, false, false}};
