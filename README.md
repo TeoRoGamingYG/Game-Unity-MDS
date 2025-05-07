@@ -6,7 +6,7 @@ Proiectul dezvoltat de echipa noastra este un joc in Unity. Jocul este de tip fa
 ## Autori
 - **Lupu Andrei**
 - **Moise Andrei-Marian**
-- **Buhnia Tudor-Alexzandru**
+- **Buhnia Tudor-Alexandru**
 - **Voinea Ionut-Florin**
 
 
